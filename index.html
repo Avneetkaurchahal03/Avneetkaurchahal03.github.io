@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avneet Kaur Chahal — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1929;
+    --teal: #0A9B8C;
+    --teal-light: #E0F5F3;
+    --accent: #C2884D;
+    --accent-light: #FDF3E7;
+    --text: #1A2635;
+    --muted: #5C6F82;
+    --border: #D8E3ED;
+    --bg: #F5F8FB;
+    --white: #FFFFFF;
+    --card-shadow: 0 1px 3px rgba(11,25,41,0.08), 0 4px 16px rgba(11,25,41,0.04);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── TOP NAV ─────────────────────────────────── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 6px; }
+  .nav-link {
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s;
+    border: none;
+    background: none;
+    text-decoration: none;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: var(--teal);
+    background: var(--teal-light);
+  }
+  .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 7px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.18s;
+  }
+  .download-btn:hover { background: var(--teal); }
+
+  /* ── LAYOUT ──────────────────────────────────── */
+  .page { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ── HERO ────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 2.8rem 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,155,140,0.25) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(194,136,77,0.18) 0%, transparent 70%);
+  }
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .hero-name span { color: #5EE8DC; }
+  .hero-title {
+    font-size: 0.95rem;
+    color: #8BAFC8;
+    margin-top: 6px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.4rem;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  .badge-teal { background: rgba(10,155,140,0.2); color: #5EE8DC; border: 1px solid rgba(94,232,220,0.2); }
+  .badge-amber { background: rgba(194,136,77,0.2); color: #F4B96A; border: 1px solid rgba(194,136,77,0.2); }
+  .badge-blue { background: rgba(99,179,237,0.15); color: #90CDF4; border: 1px solid rgba(99,179,237,0.2); }
+  .hero-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8BAFC8;
+    font-size: 0.84rem;
+  }
+  .contact-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); }
+  .hero-summary {
+    margin-top: 1.6rem;
+    color: #A8BFCF;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 640px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 1.4rem;
+  }
+  .hero-summary strong { color: #5EE8DC; font-weight: 500; }
+
+  /* ── TWO-COL LAYOUT ──────────────────────────── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  /* ── SECTIONS ────────────────────────────────── */
+  .section { margin-bottom: 1.5rem; }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .section-head h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+    font-weight: 400;
+  }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* ── EXPERIENCE CARDS ────────────────────────── */
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.22s;
+    position: relative;
+    overflow: hidden;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--border);
+    border-radius: 3px 0 0 3px;
+    transition: background 0.22s;
+  }
+  .exp-card:hover::before, .exp-card.open::before { background: var(--teal); }
+  .exp-card:hover { box-shadow: var(--card-shadow); border-color: transparent; transform: translateY(-1px); }
+  .exp-card.open { box-shadow: var(--card-shadow); border-color: transparent; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .exp-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .exp-company {
+    font-size: 0.82rem;
+    color: var(--teal);
+    margin-top: 3px;
+    font-weight: 500;
+  }
+  .exp-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+    white-space: nowrap;
+    font-family: 'DM Mono', monospace;
+    padding-top: 2px;
+  }
+  .exp-details {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .exp-card.open .exp-details { display: block; }
+  .exp-details ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .exp-details li {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+  }
+  .exp-details li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.6;
+  }
+  .chevron {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 2px;
+    transition: transform 0.22s;
+    flex-shrink: 0;
+  }
+  .exp-card.open .chevron { transform: rotate(180deg); color: var(--teal); }
+
+  /* ── SKILL BARS ──────────────────────────────── */
+  .skills-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 10px;
+  }
+  .skill-cat {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    margin-top: 8px;
+  }
+  .skill-cat:first-child { margin-top: 0; }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+  }
+  .skill-name {
+    font-size: 0.82rem;
+    color: var(--text);
+    min-width: 90px;
+  }
+  .skill-bar {
+    flex: 1;
+    height: 5px;
+    background: var(--bg);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--teal), #5EE8DC);
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .skill-fill.amber { background: linear-gradient(90deg, var(--accent), #F4B96A); }
+
+  /* ── EDUCATION CARDS ─────────────────────────── */
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .edu-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .edu-deg { font-size: 0.9rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+  .edu-uni { font-size: 0.82rem; color: var(--teal); margin-top: 3px; font-weight: 500; }
+  .edu-meta { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+  .gpa-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--teal-light);
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
+  /* ── PROJECT CARDS ───────────────────────────── */
+  .proj-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+  }
+  .proj-card:hover { box-shadow: var(--card-shadow); border-color: transparent; transform: translateY(-1px); }
+  .proj-title { font-size: 0.88rem; font-weight: 600; color: var(--navy); }
+  .proj-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .tech-chip {
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: var(--bg);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .proj-desc { font-size: 0.82rem; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+
+  /* ── CERT / ACH LIST ─────────────────────────── */
+  .list-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 10px;
+  }
+  .list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.83rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .list-item:last-child { border-bottom: none; }
+  .list-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* ── PUB CARDS ───────────────────────────────── */
+  .pub-card {
+    background: var(--accent-light);
+    border: 1px solid #E8C99A;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 8px;
+  }
+  .pub-title { font-size: 0.85rem; font-weight: 500; color: var(--navy); line-height: 1.5; }
+  .pub-venue { font-size: 0.78rem; color: var(--accent); margin-top: 4px; font-style: italic; }
+
+  /* ── STATS ROW ───────────────────────────────── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--teal); }
+  .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+  /* ── LANGUAGES ───────────────────────────────── */
+  .lang-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lang-pill {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .lang-pill.fluent { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+
+  /* ── SECTION TABS ────────────────────────────── */
+  .tab-row { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--teal);
+    color: #fff;
+    border-color: var(--teal);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── ANIMATE IN ──────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media(max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; }
+    .hero { padding: 1.8rem 1.5rem; }
+    .hero-name { font-size: 1.9rem; }
+    .hero-contact { align-items: flex-start; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    nav { padding: 0 1rem; }
+    .nav-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Avneet Kaur Chahal</span>
+  <div class="nav-links">
+    <a class="nav-link" href="#experience">Experience</a>
+    <a class="nav-link" href="#education">Education</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#publications">Publications</a>
+  </div>
+  <a class="download-btn" href="Avneet_Resume.pdf" download>
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>
+    Download PDF
+  </a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero fade-in">
+    <div class="hero-top">
+      <div>
+        <div class="hero-name">Avneet <span>Kaur</span> Chahal</div>
+        <div class="hero-title">Data Analyst &nbsp;·&nbsp; Statistician &nbsp;·&nbsp; Program Analyst</div>
+        <div class="hero-badges">
+          <span class="badge badge-teal">📊 Bayesian Statistics</span>
+          <span class="badge badge-teal">🤖 Machine Learning</span>
+          <span class="badge badge-amber">📜 IEEE Published</span>
+          <span class="badge badge-blue">🏅 Certified Scrum Master</span>
+          <span class="badge badge-teal">🐍 Python · R · SQL</span>
+        </div>
+      </div>
+      <div class="hero-contact">
+        <div class="contact-item"><div class="contact-dot"></div>Milpitas, CA</div>
+        <div class="contact-item"><div class="contact-dot"></div>avneetkaur3445@gmail.com</div>
+        <div class="contact-item"><div class="contact-dot"></div>+1 669 786 4076</div>
+        <div class="contact-item"><div class="contact-dot"></div>LinkedIn</div>
+      </div>
+    </div>
+    <div class="hero-summary">
+      Results-driven analyst with expertise in <strong>Bayesian Inference, Time Series Analysis, and Machine Learning</strong>.
+      Published IEEE researcher with contributions in insurance risk assessment, mortality modelling, and healthcare analytics.
+      Passionate about transforming complex data into <strong>high-impact, actionable insights</strong>.
+    </div>
+  </div>
+
+  <!-- STATS ROW -->
+  <div class="stats-row fade-in">
+    <div class="stat-card">
+      <div class="stat-num">5<span>+</span></div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3<span>.</span>93</div>
+      <div class="stat-label">M.S. GPA</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6<span>+</span></div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4<span>+</span></div>
+      <div class="stat-label">Languages</div>
+    </div>
+  </div>
+
+  <!-- MAIN TWO-COL -->
+  <div class="two-col">
+
+    <!-- LEFT COLUMN -->
+    <div>
+
+      <!-- EXPERIENCE -->
+      <div class="section fade-in" id="experience">
+        <div class="section-head">
+          <h2>Work Experience</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="exp-card" onclick="toggleExp(this)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Inventory Management Assistant</div>
+              <div class="exp-company">Celebrate Festival · Fremont, CA</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+              <div class="exp-date">Oct 2025 – Present</div>
+              <div class="chevron">▼</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Manage and organize inventory for seasonal events, ensuring accurate stock tracking and timely restocking.</li>
+              <li>Develop Python scripts to generate product labels and QR codes, improving inventory identification efficiency.</li>
+              <li>Coordinate with vendors and event staff to streamline procurement and distribution processes.</li>
+              <li>Maintain real-time inventory updates and assist in setup and logistics during festivals.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card" onclick="toggleExp(this)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Classroom Support Aide</div>
+              <div class="exp-company">Montessori School of Silicon Valley · Milpitas, CA</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+              <div class="exp-date">Mar – Oct 2025</div>
+              <div class="chevron">▼</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Supported multi-age classrooms ensuring smooth daily operations and positive student experiences.</li>
+              <li>Assisted lead teachers with lesson delivery, student engagement, and classroom management.</li>
+              <li>Adapted quickly to varying teaching environments and diverse student needs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card" onclick="toggleExp(this)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Part-Time Educator (SAT / ACT / AP Tutor)</div>
+              <div class="exp-company">C2 Education · Milpitas, CA</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+              <div class="exp-date">Dec 2024 – May 2025</div>
+              <div class="chevron">▼</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Provided personalized instruction to students preparing for SAT, ACT, AP, and school subjects.</li>
+              <li>Analysed student performance data and adapted teaching methods for measurably improved outcomes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card" onclick="toggleExp(this)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Analyst | Full-Stack Developer</div>
+              <div class="exp-company">Capgemini India Pvt Ltd · Bengaluru, IN</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+              <div class="exp-date">Jan – May 2022</div>
+              <div class="chevron">▼</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Developed and maintained web applications using the MERN stack (MongoDB, Express, React, Node.js).</li>
+              <li>Conducted data analysis on user engagement metrics, optimizing application features.</li>
+              <li>Collaborated in Agile sprints — sprint planning, code reviews, and retrospectives.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card" onclick="toggleExp(this)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Virtual Intern — Data Visualization</div>
+              <div class="exp-company">Tata | Forage · Remote</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+              <div class="exp-date">Jan 2023</div>
+              <div class="chevron">▼</div>
+            </div>
+          </div>
+          <div class="exp-details">
+            <ul>
+              <li>Developed Power BI dashboards to analyse and visualise sales performance across regions.</li>
+              <li>Identified key business trends, improving decision-making efficiency for stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section fade-in" id="projects">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Festival Inventory Demand Forecasting & Procurement Optimization</div>
+          <div class="proj-tech">
+            <span class="tech-chip">Python</span>
+            <span class="tech-chip">Excel</span>
+            <span class="tech-chip">EDA</span>
+            <span class="tech-chip">ChatGPT</span>
+            <span class="tech-chip">Claude</span>
+          </div>
+          <div class="proj-desc">Consolidated multi-warehouse inventory and sales data; performed EDA to identify high-demand products. Forecasted demand trends reducing stockouts and overstocking during high-volume festival events.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Avneet Financial Dashboard</div>
+          <div class="proj-tech">
+            <span class="tech-chip">HTML</span>
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">Chart.js</span>
+            <span class="tech-chip">AI Tools</span>
+          </div>
+          <div class="proj-desc">Designed and built an interactive financial dashboard tracking income, expenses, and savings. Built dynamic charts for cash flow and spending categories enabling better financial planning.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">USD to INR Exchange Rate Forecasting</div>
+          <div class="proj-tech">
+            <span class="tech-chip">R</span>
+            <span class="tech-chip">ARIMA</span>
+            <span class="tech-chip">Time Series</span>
+          </div>
+          <div class="proj-desc">Built ARIMA models for currency trend predictions with time-series visualisations for financial analysis.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Ice Cream Sales Analysis</div>
+          <div class="proj-tech">
+            <span class="tech-chip">R</span>
+            <span class="tech-chip">Linear Regression</span>
+            <span class="tech-chip">R Markdown</span>
+          </div>
+          <div class="proj-desc">Conducted linear regression and statistical inference on sales data. Created R Markdown reports with actionable business insights.</div>
+        </div>
+
+      </div>
+
+      <!-- PUBLICATIONS -->
+      <div class="section fade-in" id="publications">
+        <div class="section-head">
+          <h2>Publications & Research</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-title">Estimation of Life Table Values Using Mortality Models</div>
+          <div class="pub-venue">Published by IEEE, 2025 — ieeexplore.ieee.org</div>
+        </div>
+        <div class="pub-card">
+          <div class="pub-title">Enhancing Quality Control with Fuzzy Design of Experiments and Statistical Process Monitoring</div>
+          <div class="pub-venue">Book Chapter · Recent Innovations in Theoretical and Practical Mathematics Vol. 2 (ISBN: 978-93-4955-67-9)</div>
+        </div>
+        <div class="pub-card">
+          <div class="pub-title">Premium Precision: A Bayesian Approach Using Poisson and Exponential Models in Insurance Risk Assessment</div>
+          <div class="pub-venue">Apple Academic Press, 2025 (ISBN: 9781779641007)</div>
+        </div>
+        <div class="pub-card">
+          <div class="pub-title">Assessing Death Claims Estimation Using Credibility Theory</div>
+          <div class="pub-venue">Presented at ICFMMP-2023</div>
+        </div>
+        <div class="pub-card">
+          <div class="pub-title">Advancing Diabetes Care: Bayesian Classification Techniques</div>
+          <div class="pub-venue">Conference Presentation · RAAFAS-2024</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+
+      <!-- SKILLS -->
+      <div class="section fade-in">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-card">
+          <div class="skill-cat">Programming</div>
+          <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+          <div class="skill-item"><span class="skill-name">R</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+          <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+          <div class="skill-item"><span class="skill-name">SAS</span><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
+
+          <div class="skill-cat">Visualization</div>
+          <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill amber" data-w="85"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill amber" data-w="82"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Excel</span><div class="skill-bar"><div class="skill-fill amber" data-w="90"></div></div></div>
+
+          <div class="skill-cat">Machine Learning</div>
+          <div class="skill-item"><span class="skill-name">Regression</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Time Series</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Bayesian</span><div class="skill-bar"><div class="skill-fill" data-w="91"></div></div></div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section fade-in" id="education">
+        <div class="section-head">
+          <h2>Education</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <div class="edu-deg">M.S. Statistics & Data Analytics</div>
+            <div class="edu-uni">Lovely Professional University</div>
+            <div class="edu-meta">2022 – 2024 <span class="gpa-pill">3.93 GPA</span></div>
+            <div class="edu-meta" style="margin-top:5px;color:var(--muted);">Thesis: Bayesian Approaches to Credibility Modelling</div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon">💻</div>
+          <div>
+            <div class="edu-deg">B.Tech Computer Science & Engineering</div>
+            <div class="edu-uni">Lovely Professional University</div>
+            <div class="edu-meta">2018 – 2022 <span class="gpa-pill">3.59 GPA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section fade-in">
+        <div class="section-head">
+          <h2>Certifications</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="list-card">
+          <div class="list-item"><div class="list-dot"></div>Certified Scrum Master (CSM) — Scrum Alliance</div>
+          <div class="list-item"><div class="list-dot"></div>Sprinklr Product Analyst Pro</div>
+          <div class="list-item"><div class="list-dot"></div>Google Data Analytics — Coursera</div>
+          <div class="list-item"><div class="list-dot"></div>IBM Machine Learning — Coursera</div>
+          <div class="list-item"><div class="list-dot"></div>Data Visualization with Tableau — Coursera</div>
+          <div class="list-item"><div class="list-dot"></div>Applied Data Science with Python — Coursera</div>
+        </div>
+      </div>
+
+      <!-- ACHIEVEMENTS -->
+      <div class="section fade-in">
+        <div class="section-head">
+          <h2>Achievements</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="list-card">
+          <div class="list-item"><div class="list-dot"></div>Silver Badge in SQL — HackerRank</div>
+          <div class="list-item"><div class="list-dot"></div>Presented Research at ICFMMP-2023 & ICTACS-2024</div>
+          <div class="list-item"><div class="list-dot"></div>Participated in RAAFAS-2024 Conference on Bayesian Risk Models</div>
+        </div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section fade-in">
+        <div class="section-head">
+          <h2>Languages</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="lang-row">
+          <span class="lang-pill fluent">English</span>
+          <span class="lang-pill fluent">Punjabi</span>
+          <span class="lang-pill fluent">Hindi</span>
+          <span class="lang-pill">Spanish (Beginner)</span>
+        </div>
+      </div>
+
+      <!-- INTERESTS -->
+      <div class="section fade-in">
+        <div class="section-head">
+          <h2>Interests</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="lang-row">
+          <span class="lang-pill fluent">Data Visualization</span>
+          <span class="lang-pill fluent">Bayesian Stats</span>
+          <span class="lang-pill fluent">Teaching</span>
+          <span class="lang-pill">Badminton</span>
+        </div>
+      </div>
+
+    </div><!-- end right col -->
+  </div><!-- end two-col -->
+</div><!-- end page -->
+
+<script>
+  function toggleExp(card) {
+    card.classList.toggle('open');
+  }
+
+  // Intersection observer for fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Animate skill bars
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+          const w = bar.getAttribute('data-w');
+          setTimeout(() => { bar.style.width = w + '%'; }, 300);
+        });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.skills-card').forEach(el => barObserver.observe(el));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) cur = s.id;
+    });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + cur);
+    });
+  });
+</script>
+</body>
+</html>
